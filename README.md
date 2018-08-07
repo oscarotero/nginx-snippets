@@ -41,3 +41,11 @@ server {
   }
 }
 ```
+
+## Other tools
+
+Configure CSP: [CSP is Awesome](https://www.cspisawesome.com/):
+
+```conf
+add_header Content-Security-Policy: "default-src 'self'"
+```
