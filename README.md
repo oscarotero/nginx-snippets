@@ -44,8 +44,10 @@ server {
 
 ## Other tools
 
-Configure CSP: [CSP is Awesome](https://www.cspisawesome.com/):
+- Configure CSP: [CSP is Awesome](https://www.cspisawesome.com/):
+- Configure SSL: [Mozilla SSL Configuration Generator](https://mozilla.github.io/server-side-tls/ssl-config-generator/)
 
-```conf
-add_header Content-Security-Policy: "default-src 'self'"
-```
+## Testing
+
+- [Observatory by Mozilla](https://observatory.mozilla.org/)
+- [Sonarwhal](https://sonarwhal.com/)
