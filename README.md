@@ -46,6 +46,7 @@ server {
 
 - Configure CSP: [CSP is Awesome](https://www.cspisawesome.com/):
 - Configure SSL: [Mozilla SSL Configuration Generator](https://mozilla.github.io/server-side-tls/ssl-config-generator/)
+- NGINX Config Generator: [nginxconfig.io](https://nginxconfig.io/)
 
 ## Testing
 
