@@ -14,30 +14,30 @@ server {
   listen 443 ssl http2;
   listen [::]:443 ssl http2;
 
-  include snippets/nginx-snippets/global.conf;
+  include snippets/nginx-snippets/common.conf;
 
   location / {
-    include snippets/nginx-snippets/html-headers.conf;
+    include snippets/nginx-snippets/html.conf;
   }
 
   # Media: images, icons, video, audio, HTC
   location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|mp4|ogg|ogv|webm|htc)$ {
-    include snippets/nginx-snippets/media-headers.conf;
+    include snippets/nginx-snippets/media.conf;
   }
 
   # Fonts
   location ~* \.(?:ttf|ttc|otf|eot|woff|woff2)$ {
-    include snippets/nginx-snippets/fonts-headers.conf;
+    include snippets/nginx-snippets/fonts.conf;
   }
 
   # CSS
   location ~* \.css$ {
-    include snippets/nginx-snippets/css-headers.conf;
+    include snippets/nginx-snippets/css.conf;
   }
 
   # Javascript
   location ~* \.js$ {
-    include snippets/nginx-snippets/js-headers.conf;
+    include snippets/nginx-snippets/js.conf;
   }
 }
 ```
