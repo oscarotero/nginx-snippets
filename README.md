@@ -5,7 +5,7 @@ Custom snippets for nginx with http2
 ## Install
 
 ```
-cd /etc/nginx/snipptes
+cd /etc/nginx/snippets
 git clone https://github.com/oscarotero/nginx-snippets.git
 ```
 
