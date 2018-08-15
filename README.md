@@ -16,10 +16,8 @@ This package contains a set of config files with best practices that you can inc
 - `http.conf`: Common http settings to include inside the `http` block.
 - `server.conf`: Common http settings to include inside each `server` block.
 - `html.conf`: Settings, headers and security stuff to use with html responses.
-- `media.conf`:  Settings, headers and security stuff to use with media responses (images, videos, audio, etc).
-- `css.conf`:  Settings, headers and security stuff to use with css responses.
-- `js.conf`:  Settings, headers and security stuff to use with javascript responses.
-- `fonts.conf`:  Settings, headers and security stuff to use with fonts responses (otf, woff, woff2, etc).
+- `media.conf`:  Settings, headers and security stuff to use with media responses (images, videos, audio, fonts, etc).
+- `assets.conf`:  Settings, headers and security stuff to use with text-based assets like css and javascript.
 
 ## Usage
 
@@ -37,24 +35,15 @@ http {
       include snippets/nginx-snippets/html.conf;
     }
 
-    # Media: images, icons, video, audio, HTC
-    location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|mp4|ogg|ogv|webm|htc)$ {
+    # Media and fonts
+    location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|mp4|ogg|ogv|webm|htc|ttf|ttc|otf|eot|woff|woff2)$ {
       include snippets/nginx-snippets/media.conf;
     }
 
-    # Fonts
-    location ~* \.(?:ttf|ttc|otf|eot|woff|woff2)$ {
-      include snippets/nginx-snippets/fonts.conf;
-    }
-
-    # CSS
-    location ~* \.css$ {
-      include snippets/nginx-snippets/css.conf;
-    }
-
-    # Javascript
-    location ~* \.(?:js|webmanifest)$ {
-      include snippets/nginx-snippets/js.conf;
+    # Assets: css, javascript (with cache busting)
+    location ~* ^(.*/)(v\d+/)(.+)\.(?:css|js|webmanifest)$ {
+      try_files $uri $1/$3.$4;
+      include snippets/nginx-snippets/assets.conf;
     }
   }
 }
