@@ -53,7 +53,7 @@ http {
     }
 
     # Javascript
-    location ~* \.js$ {
+    location ~* \.(?:js|webmanifest)$ {
       include snippets/nginx-snippets/js.conf;
     }
   }
