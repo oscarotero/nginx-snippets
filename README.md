@@ -40,9 +40,8 @@ http {
       include snippets/nginx-snippets/media.conf;
     }
 
-    # Assets: css, javascript (with cache busting)
-    location ~* ^(.*/)(v\d+/)(.+)\.(?:css|js|webmanifest)$ {
-      try_files $uri $1/$3.$4;
+    # Assets: css, javascript, etc
+    location ~* \.(?:css|js|webmanifest)$ {
       include snippets/nginx-snippets/assets.conf;
     }
   }
